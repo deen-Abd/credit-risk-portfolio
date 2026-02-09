@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Shell | Credit Risk Analytics Dashboard (Dummy)</title>
+  <link rel="stylesheet" href="/static/styles.css" />
+  <!-- Chart.js via CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.3/dist/chart.umd.min.js"></script>
+</head>
+<body>
+  <header class="header">
+    <div>
+      <h1>Credit Risk Analytics Dashboard</h1>
+      <p class="sub">Dummy portfolio view (apprentice project) • <span id="asof">—</span></p>
+    </div>
+    <div class="badge">One-page demo</div>
+  </header>
+
+  <main class="container">
+    <section class="kpis">
+      <div class="card kpi">
+        <div class="label">Total Exposure (EAD)</div>
+        <div class="value" id="kpi-exposure">—</div>
+        <div class="hint">USD millions</div>
+      </div>
+      <div class="card kpi">
+        <div class="label">Total Expected Loss</div>
+        <div class="value" id="kpi-el">—</div>
+        <div class="hint">EAD × PD × LGD</div>
+      </div>
+      <div class="card kpi">
+        <div class="label">Average PD</div>
+        <div class="value" id="kpi-pd">—</div>
+        <div class="hint">Annual probability</div>
+      </div>
+      <div class="card kpi">
+        <div class="label">Average LGD</div>
+        <div class="value" id="kpi-lgd">—</div>
+        <div class="hint">Loss severity</div>
+      </div>
+      <div class="card kpi">
+        <div class="label">Counterparties</div>
+        <div class="value" id="kpi-n">—</div>
+        <div class="hint">Active portfolio</div>
+      </div>
+    </section>
+
+    <section class="grid">
+      <div class="card">
+        <div class="card-title">Exposure by Region</div>
+        <canvas id="chart-region" height="120"></canvas>
+      </div>
+      <div class="card">
+        <div class="card-title">Expected Loss by Rating</div>
+        <canvas id="chart-rating" height="120"></canvas>
+      </div>
+      <div class="card wide">
+        <div class="card-title">Monthly Portfolio Expected Loss (12M)</div>
+        <canvas id="chart-trend" height="90"></canvas>
+      </div>
+    </section>
+
+    <section class="card">
+      <div class="card-title">Top 10 Counterparties by Exposure</div>
+      <div class="table-wrap">
+        <table id="top10">
+          <thead>
+            <tr>
+              <th>Counterparty</th>
+              <th>Region</th>
+              <th>Industry</th>
+              <th>Rating</th>
+              <th class="num">Limit ($m)</th>
+              <th class="num">Utilization</th>
+              <th class="num">EAD ($m)</th>
+              <th class="num">PD</th>
+              <th class="num">LGD</th>
+              <th class="num">EL ($m)</th>
+              <th class="num">DPD</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+      <p class="footnote">
+        Note: Dummy data only. Built to demonstrate typical credit risk portfolio metrics (EAD, PD, LGD, EL).
+      </p>
+    </section>
+  </main>
+
+  <script src="/static/dashboard.js"></script>
+</body>
+</html>
